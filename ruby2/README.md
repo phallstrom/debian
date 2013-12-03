@@ -1,4 +1,6 @@
-	aptitude install \
+  aptitude update
+
+	aptitude -y install \
 	         build-essential curl libc6-dev openssl ca-certificates \
 	         libreadline6-dev zlib1g-dev libssl-dev libyaml-dev \
 	         libsqlite3-dev  libgdbm-dev libncurses5-dev libffi-dev \
@@ -6,25 +8,27 @@
 	
 	cd /usr/local/src
 	
-	wget http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p247.tar.gz
+	wget http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p353.tar.gz
+
+  tar zxvf ruby-2.0.0-p353.tar.gz
 	
-	cd ruby-2.0.0.p247
+	cd ruby-2.0.0-p353
 	
 	./configure --prefix=/usr/local --disable-install-doc
 	
 	make
 	
-	echo "Ruby 2.0.0-p247, no docs, installed into /usr/local" > description-pak
+	echo "Ruby 2.0.0-p353, no docs, installed into /usr/local" > description-pak
 	
 	checkinstall -D --fstrans=no --nodoc --pkgname='ruby2' \
-	    --pkgversion='2.0.0-p247' --provides='ruby' \
+	    --pkgversion='2.0.0-p353' --provides='ruby' \
 	    --pkglicense='BSDL' --pkggroup='ruby' \
 	    --maintainer='philip@pjkh.com' \
 	    --requires='libc6, libreadline6, zlib1g, libssl1.0.0, libyaml-0-2, \
 	                libsqlite3-0, libgdbm3, libncurses5, libffi5'
 
 	
-	ruby2_2.0.0-p247-1_amd64.deb
+	ruby2_2.0.0-p353-1_amd64.deb
 	
     # aptitude purge ruby2
 	The following packages will be REMOVED:
@@ -41,11 +45,11 @@
 	Current status: 8 new [-1].
 	
 	
-	# dpkg -i ruby2_2.0.0-p247-1_amd64.deb
+	# dpkg -i ruby2_2.0.0-p353-1_amd64.deb
 	Selecting previously unselected package ruby2.
 	(Reading database ... 27773 files and directories currently installed.)
-	Unpacking ruby2 (from ruby2_2.0.0-p247-1_amd64.deb) ...
-	Setting up ruby2 (2.0.0-p247-1) ...
+	Unpacking ruby2 (from ruby2_2.0.0-p353-1_amd64.deb) ...
+	Setting up ruby2 (2.0.0-p353-1) ...
 	Processing triggers for man-db ...
 	
 	
@@ -54,7 +58,7 @@
 	New: yes
 	State: installed
 	Automatically installed: no
-	Version: 2.0.0-p247-1
+	Version: 2.0.0-p353-1
 	Priority: extra
 	Section: ruby
 	Maintainer: philip@pjkh.com
@@ -62,4 +66,4 @@
 	Uncompressed Size: 58.5 M
 	Depends: libc6, libreadline6, zlib1g, libssl1.0.0, libyaml-0-2, libsqlite3-0, libgdbm3, libncurses5, libffi5
 	Provides: ruby
-	Description: Ruby 2.0.0-p247, no docs, installed into /usr/local
+	Description: Ruby 2.0.0-p353, no docs, installed into /usr/local
