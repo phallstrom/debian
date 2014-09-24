@@ -8,20 +8,20 @@
 	
 	cd /usr/local/src
 	
-	wget http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p451.tar.gz
+	wget http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.3.tar.gz
   
-  tar zxvf ruby-2.0.0-p451.tar.gz
+  tar zxvf ruby-2.1.3.tar.gz
   	
-	cd ruby-2.0.0-p451
+	cd ruby-2.1.3
 	
 	./configure --prefix=/usr/local --disable-install-doc
 	
 	make
 	
-	echo "Ruby 2.0.0-p451, no docs, installed into /usr/local" > description-pak
+	echo "Ruby 2.1.3, no docs, installed into /usr/local" > description-pak
 	
 	checkinstall -D --fstrans=no --nodoc --pkgname='ruby2' \
-	    --pkgversion='2.0.0-p451' --provides='ruby' \
+	    --pkgversion='2.1.3' --provides='ruby' \
 	    --pkglicense='BSDL' --pkggroup='ruby' \
 	    --maintainer='philip@pjkh.com' \
 	    --requires='libc6, libreadline6, zlib1g, libssl1.0.0, libyaml-0-2, \
@@ -32,6 +32,6 @@
 	
   aptitude purge ruby2
 
-	dpkg -i ruby2_2.0.0-p451-1_amd64.deb
+	dpkg -i ruby2_2.1.3-1_amd64.deb
 	
 	aptitude show ruby2
